@@ -9,12 +9,6 @@ const Navbar = () => {
       <Link to={"/create"}>
         <button>Create</button>
       </Link>
-      <Link to={"/edit"}>
-        <button>Edit</button>
-      </Link>
-      <Link to={"/profile"}>
-        <button>Profile</button>
-      </Link>
     </header>
   );
 };

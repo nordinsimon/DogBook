@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/picture.css";
 
 const Home = ({ dogs }) => {
+  console.log("HOME");
   const navigate = useNavigate();
 
   return (
@@ -10,9 +11,14 @@ const Home = ({ dogs }) => {
       <h2>Hundar</h2>
       <ul className="doglist">
         {dogs.map(({ id, name, picture }) => (
-          <div key={id} onClick={() => navigate("/profile/" + name + "/" + id)}>
+          <div
+            key={id}
+            onClick={() => {
+              navigate("/profile/" + name + "/" + id);
+            }}
+          >
             <li>
-              <img src={picture} alt="Bild Saknas" />
+              <img src={picture} alt="Bild Saknas " />
               {name}
             </li>
           </div>

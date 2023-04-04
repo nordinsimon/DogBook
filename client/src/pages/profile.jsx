@@ -1,10 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import "../css/picture.css";
 
-const Profile = ({ dogs }) => {
-  const navigate = useNavigate();
+import fetchDogs from "../functions/getDogsFromServer";
 
+const Profile = ({ dogs, toggle, setToggle }) => {
+  console.log("PROFILE");
+  console.log("Dogs", dogs);
+
+  const navigate = useNavigate();
   const idParam = Number(useParams().id);
+
   const { id, name, picture, nickname, age, bio, friends, presence } =
     dogs.find((dog) => dog.id === idParam);
   return (

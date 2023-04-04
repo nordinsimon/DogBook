@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  console.log("Navbar");
   return (
     <header>
       <Link to={"/"}>

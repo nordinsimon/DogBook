@@ -1,0 +1,28 @@
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+img:hover {
+  cursor: pointer;
+}
+li {
+  border: 1px solid black;
+}
+.dogname_link_true,
+.dogname_link_false {
+  font-size: 30px;
+}
+
+.dogname_link_true {
+  color: green;
+}
+.dogname_link_false {
+  color: red;
+}
+
+.dogname_link_false:hover,
+.dogname_link_true:hover {
+  color: blue;
+  cursor: pointer;
+}

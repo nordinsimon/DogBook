@@ -76,16 +76,14 @@ const Edit = () => {
         selectedFriend={selectedFriend}
         setSelectedFriend={setSelectedFriend}
       />
-      <div>
-        <h3>Friends:</h3>
-        <FriendsList
-          dogs={dogs}
-          friends={friends}
-          dogId={id}
-          render={render}
-          setRender={setRender}
-        />
-      </div>
+      <h3>Friends:</h3>
+      <FriendsList
+        dogs={dogs}
+        friends={friends}
+        dogId={id}
+        render={render}
+        setRender={setRender}
+      />
     </>
   );
 };

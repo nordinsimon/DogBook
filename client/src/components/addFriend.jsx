@@ -12,14 +12,23 @@ const AddFriendComponent = ({
 }) => {
   const maybeAdd = friendsToMaybeAdd(activeDog, dogs, friends);
 
+  console.log("maybeAdd", maybeAdd);
+
   const changeHandler = (e) => {
     setSelectedFriend(Number(e.target.value));
   };
 
-  const addToDB = async (e) => {
+  const addToDB = async () => {
     if (selectedFriend === 0) return;
     await addFriend(dogs, activeDog.id, selectedFriend);
     setRender(!render);
+  };
+
+  const onClickHandler = async (e) => {
+    addToDB(e);
+    await setSelectedFriend(maybeAdd[0].id);
+    setRender(!render);
+    document.getElementById("AddFriendDropDown").selectedIndex = 0;
   };
 
   return (
@@ -34,14 +43,7 @@ const AddFriendComponent = ({
           </option>
         ))}
       </select>
-      <button
-        onClick={(e) => {
-          addToDB(e);
-          setSelectedFriend(0);
-        }}
-      >
-        AddFriend
-      </button>
+      <button onClick={onClickHandler}>AddFriend</button>
     </>
   );
 };

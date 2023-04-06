@@ -7,9 +7,7 @@
       "age": "30",
       "bio": "ffff",
       "friends": [
-        6,
-        4,
-        7
+        3
       ],
       "presence": true,
       "id": 1
@@ -20,13 +18,7 @@
       "nickname": "Buddy",
       "age": "3",
       "bio": "I am a dog",
-      "friends": [
-        5,
-        3,
-        4,
-        6,
-        8
-      ],
+      "friends": [],
       "presence": false,
       "id": 2
     },
@@ -37,27 +29,11 @@
       "age": "4",
       "bio": "I am a dog",
       "friends": [
-        6,
-        4,
-        2
+        1,
+        8
       ],
       "presence": true,
       "id": 3
-    },
-    {
-      "name": "Simon",
-      "picture": "https://images.dog.ceo/breeds/terrier-scottish/n02097298_200.jpg",
-      "nickname": "123",
-      "age": "22",
-      "bio": "",
-      "friends": [
-        3,
-        2,
-        5,
-        1
-      ],
-      "presence": true,
-      "id": 4
     },
     {
       "name": "eeee",
@@ -66,25 +42,10 @@
       "age": "32",
       "bio": "lkmf",
       "friends": [
-        2,
-        4
+        8
       ],
       "presence": false,
       "id": 5
-    },
-    {
-      "name": "1",
-      "picture": "https://images.dog.ceo/breeds/retriever-curly/n02099429_3234.jpg",
-      "nickname": "1",
-      "age": "1",
-      "bio": "1",
-      "friends": [
-        1,
-        3,
-        2
-      ],
-      "presence": false,
-      "id": 6
     },
     {
       "name": "papps",
@@ -92,49 +53,22 @@
       "picture": "https://images.dog.ceo/breeds/pug/DSCF7495-2.jpg",
       "age": "3456",
       "bio": "argsrths",
-      "friends": [
-        {
-          "id": 1,
-          "name": "Rex"
-        },
-        {
-          "id": 2,
-          "name": "Buddy"
-        },
-        8,
-        8,
-        9,
-        1
-      ],
+      "friends": [],
       "presence": false,
       "id": 7
     },
     {
-      "name": "123444",
-      "nickname": "44444",
-      "picture": "https://images.dog.ceo/breeds/terrier-silky/n02097658_271.jpg",
-      "age": "44444",
-      "bio": "444444",
+      "name": "3",
+      "nickname": "4",
+      "picture": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_3153.jpg",
+      "age": "56",
+      "bio": "ujhdfxgd",
       "friends": [
-        2,
-        7,
-        9
-      ],
-      "presence": false,
-      "id": 8
-    },
-    {
-      "name": "pppp",
-      "nickname": "ppppp",
-      "picture": "https://images.dog.ceo/breeds/pomeranian/n02112018_1612.jpg",
-      "age": "345",
-      "bio": "h",
-      "friends": [
-        7,
-        8
+        5,
+        3
       ],
       "presence": true,
-      "id": 9
+      "id": 8
     }
   ]
 }

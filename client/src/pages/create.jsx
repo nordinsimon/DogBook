@@ -1,18 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
-const friends = [
-  {
-    id: 1,
-    name: "Rex",
-  },
-  {
-    id: 2,
-    name: "Buddy",
-  },
-];
+import fetchDogs from "../functions/getDogsFromServer";
 
-const Create = ({ setDogs, toggle, setToggle }) => {
-  console.log("EDIT");
+import FriendsToBeAdded from "../components/FriendsToAddCreatePage";
+import addFriendsToNewDog from "../functions/newDogAddFriends";
+
+const Create = () => {
+  console.log("CREATE");
+
+  const [dogs, setDogs] = useState([]);
+  const [selectedFriend, setSelectedFriend] = useState(0);
+  const [friendList, setFriendList] = useState([]);
+
+  useEffect(() => {
+    console.log("useEffect");
+    const getDogsData = async () => {
+      const resp = await fetchDogs();
+      setDogs(resp);
+    };
+
+    getDogsData();
+  }, []);
+
   const navigate = useNavigate();
   const submithandler = async (e) => {
     e.preventDefault();
@@ -21,7 +31,7 @@ const Create = ({ setDogs, toggle, setToggle }) => {
     let picture;
     const age = e.target.age.value;
     const bio = e.target.bio.value;
-    //const friends = e.target.friends.value;
+    const friends = [];
     const presence = false;
 
     try {
@@ -52,14 +62,16 @@ const Create = ({ setDogs, toggle, setToggle }) => {
     } catch (error) {
       console.error(error);
     }
-
-    setToggle(!toggle);
+    addFriendsToNewDog(friendList);
     navigate("/");
   };
   return (
     <>
       <h1>Create</h1>
       <form onSubmit={submithandler}>
+        <button type="submit">Save new dog</button>
+        <br />
+        <br />
         Name: <input id="name" type="text" />
         <br />
         Nickname: <input id="nickname" type="text" />
@@ -68,10 +80,16 @@ const Create = ({ setDogs, toggle, setToggle }) => {
         <br />
         Bio: <input id="bio" type="text" />
         <br />
-        Friends: <input id="friends" type="text" />
-        <br />
-        <button type="submit">Save new dog</button>
       </form>
+      <br />
+      <FriendsToBeAdded
+        dogs={dogs}
+        selectedFriend={selectedFriend}
+        setSelectedFriend={setSelectedFriend}
+        friendList={friendList}
+        setFriendList={setFriendList}
+      />
+      <br />
     </>
   );
 };

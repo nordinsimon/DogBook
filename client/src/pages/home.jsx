@@ -1,9 +1,27 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/picture.css";
 
-const Home = ({ dogs }) => {
+import fetchDogs from "../functions/getDogsFromServer";
+
+const Home = () => {
   console.log("HOME");
+  const [dogs, setDogs] = useState([]);
+
+  useEffect(() => {
+    const getDogsData = async () => {
+      const resp = await fetchDogs();
+      setDogs(resp);
+    };
+
+    getDogsData();
+  }, []);
+
   const navigate = useNavigate();
+
+  if (dogs.length === 0) {
+    return <h1>Dogbook</h1>;
+  }
 
   return (
     <div>
@@ -14,7 +32,7 @@ const Home = ({ dogs }) => {
           <div
             key={id}
             onClick={() => {
-              navigate("/profile/" + name + "/" + id);
+              navigate("/profile/" + id);
             }}
           >
             <li>

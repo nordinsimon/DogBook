@@ -1,24 +1,43 @@
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../css/picture.css";
 
 import fetchDogs from "../functions/getDogsFromServer";
 
-const Profile = ({ dogs, toggle, setToggle }) => {
+import PrecenceButton from "../components/presenceButton";
+import FriendsList from "../components/FriendList";
+
+const Profile = () => {
   console.log("PROFILE");
-  console.log("Dogs", dogs);
+
+  const [render, setRender] = useState(true);
+  const [dogs, setDogs] = useState([]);
+
+  useEffect(() => {
+    console.log("useEffect");
+    const getDogsData = async () => {
+      const resp = await fetchDogs();
+      setDogs(resp);
+    };
+
+    getDogsData();
+  }, [render]);
 
   const navigate = useNavigate();
   const idParam = Number(useParams().id);
 
-  const { id, name, picture, nickname, age, bio, friends, presence } =
-    dogs.find((dog) => dog.id === idParam);
+  if (dogs.length === 0) {
+    return <h1>Profile</h1>;
+  }
+
+  const dog = dogs.find((dog) => dog.id === idParam);
+  const { id, name, picture, nickname, age, bio, friends, presence } = dog;
+
   return (
     <>
       <div>
         <h1>Profile</h1>
-        <button onClick={() => navigate("/edit/" + name + "/" + id)}>
-          Edit
-        </button>
+        <button onClick={() => navigate("/edit/" + id)}>Edit</button>
       </div>
       <h2>Name: {name}</h2>
       <img src={picture} alt="Picture missing" />
@@ -27,13 +46,9 @@ const Profile = ({ dogs, toggle, setToggle }) => {
       <h4>Bio: {bio}</h4>
       <div>
         <h3>Friends:</h3>
-        {friends.map(({ id, name }) => (
-          <li key={id} onClick={() => navigate("/profile/" + name + "/" + id)}>
-            {name}
-          </li>
-        ))}
+        <FriendsList dogs={dogs} friends={friends} />
       </div>
-      <h3>Presence: {String(presence)}</h3>
+      <PrecenceButton dog={dog} render={render} setRender={setRender} />
     </>
   );
 };

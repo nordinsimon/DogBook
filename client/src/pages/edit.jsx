@@ -1,14 +1,38 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-const Edit = ({ dogs, setDogs, toggle, setToggle }) => {
+import FriendsList from "../components/FriendList";
+import AddFriendComponent from "../components/addFriend";
+
+import fetchDogs from "../functions/getDogsFromServer";
+import editDog from "../functions/editDogOnServer";
+
+const Edit = () => {
   console.log("EDIT");
-  const navigate = useNavigate();
+  const [render, setRender] = useState(true);
+  const [dogs, setDogs] = useState([]);
+  const [selectedFriend, setSelectedFriend] = useState(0);
 
+  useEffect(() => {
+    const getDogsData = async () => {
+      const resp = await fetchDogs();
+      setDogs(resp);
+    };
+
+    getDogsData();
+  }, [render]);
+
+  const navigate = useNavigate();
   const idParam = Number(useParams().id);
-  const { id, name, picture, nickname, age, bio, friends, presence } =
-    dogs.find((dog) => dog.id === idParam);
-  const idToFetch = id;
+
+  if (dogs.length === 0) {
+    return <h1>Edit</h1>;
+  }
+  const dog = dogs.find((dog) => dog.id === idParam);
+  const { id, name, picture, nickname, age, bio, friends, presence } = dog;
+
   const submithandler = async (e) => {
+    console.log("subnithandler");
     e.preventDefault();
     const name = e.target.name.value;
     const nickname = e.target.nickname.value;
@@ -16,19 +40,9 @@ const Edit = ({ dogs, setDogs, toggle, setToggle }) => {
     const bio = e.target.bio.value;
 
     const newdog = { name, picture, nickname, age, bio, friends, presence };
-    try {
-      await fetch(`http://localhost:3001/dogs/${idToFetch}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newdog),
-      });
-    } catch (error) {
-      console.error(error);
-    }
-    setToggle(!toggle);
-    navigate("/profile/" + name + "/" + id);
+
+    editDog(id, newdog);
+    navigate("/profile/" + id);
   };
 
   return (
@@ -51,19 +65,27 @@ const Edit = ({ dogs, setDogs, toggle, setToggle }) => {
         <h4>
           Bio: <input id="bio" type="text" defaultValue={bio} />
         </h4>
-        <div>
-          <h3>Friends:</h3>
-          {friends.map(({ id, name }) => (
-            <li
-              key={id}
-              onClick={() => navigate("/profile/" + name + "/" + id)}
-            >
-              {name}
-            </li>
-          ))}
-        </div>
-        <h3>Presence: {String(presence)}</h3>
       </form>
+      <h3>AddFriend:</h3>
+      <AddFriendComponent
+        activeDog={dog}
+        dogs={dogs}
+        friends={friends}
+        render={render}
+        setRender={setRender}
+        selectedFriend={selectedFriend}
+        setSelectedFriend={setSelectedFriend}
+      />
+      <div>
+        <h3>Friends:</h3>
+        <FriendsList
+          dogs={dogs}
+          friends={friends}
+          dogId={id}
+          render={render}
+          setRender={setRender}
+        />
+      </div>
     </>
   );
 };

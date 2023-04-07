@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../css/picture.css";
 
 import fetchDogs from "../functions/getDogsFromServer";
 

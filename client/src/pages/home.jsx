@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/home.css";
 
 import fetchDogs from "../functions/getDogsFromServer";
 import deleteDog from "../functions/deleteDog";
@@ -36,34 +35,37 @@ const Home = () => {
   return (
     <div>
       <h1>Dogbook</h1>
-      <h2>Hundar</h2>
-      <ul className="doglist">
-        {dogs.map(({ id, name, picture, presence }) => (
-          <div key={id}>
-            <li>
-              <p
-                onClick={() => {
-                  navigate("/profile/" + id);
-                }}
-                className={"dogname_link_" + presence}
-              >
-                {name}
-              </p>
-              <img
-                onClick={() => {
-                  navigate("/profile/" + id);
-                }}
-                src={picture}
-                alt="Bild Saknas "
-              />
+      <h2>Dogs:</h2>
 
-              <button key={id} id={id} onClick={onClickHandler}>
-                X
-              </button>
-            </li>
-          </div>
-        ))}
-      </ul>
+      {dogs.map(({ id, name, picture, presence }) => (
+        <div className="doglist" key={id}>
+          <img
+            className="doglist_img_homepage"
+            onClick={() => {
+              navigate("/profile/" + id);
+            }}
+            src={picture}
+            alt="Bild Saknas "
+          />
+          <h4
+            onClick={() => {
+              navigate("/profile/" + id);
+            }}
+            className={"dogname_link_" + presence}
+          >
+            {name}
+          </h4>
+
+          <button
+            className="deletebutton"
+            key={id}
+            id={id}
+            onClick={onClickHandler}
+          >
+            X
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

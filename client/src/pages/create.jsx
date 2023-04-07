@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import fetchDogs from "../functions/getDogsFromServer";
 
@@ -67,7 +67,7 @@ const Create = () => {
   };
   return (
     <>
-      <h1>Create</h1>
+      <h1>Create new dog</h1>
       <form onSubmit={submithandler}>
         <button type="submit">Save new dog</button>
         <br />

@@ -12,6 +12,7 @@ const PrecenceButton = ({ dog, render, setRender }) => {
       <h3>
         Presence{" - "}
         <input
+          className="presence_checkbox"
           type="checkbox"
           id="presence"
           checked={isPresence}

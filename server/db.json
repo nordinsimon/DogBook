@@ -1,74 +1,75 @@
 {
   "dogs": [
     {
-      "name": "Rex dee",
-      "picture": "https://images.dog.ceo/breeds/sheepdog-english/n02105641_9319.jpg",
-      "nickname": "rexan",
-      "age": "30",
-      "bio": "ffff",
+      "name": "Lucky",
+      "nickname": "Happy",
+      "picture": "https://images.dog.ceo/breeds/cattledog-australian/IMG_7057.jpg",
+      "age": "12",
+      "bio": "Is always happy :)",
       "friends": [
-        3
+        2,
+        4,
+        5
       ],
       "presence": true,
       "id": 1
     },
     {
-      "name": "Buddyf",
-      "picture": "https://images.dog.ceo/breeds/sharpei/noel.jpg",
-      "nickname": "Buddy",
-      "age": "3",
-      "bio": "I am a dog",
-      "friends": [],
+      "name": "Buddy",
+      "nickname": "Bus",
+      "picture": "https://images.dog.ceo/breeds/dachshund/dachshund-5.jpg",
+      "age": "2",
+      "bio": "Is looking good",
+      "friends": [
+        1,
+        3,
+        4,
+        5
+      ],
       "presence": false,
       "id": 2
     },
     {
-      "name": "Lucky",
-      "picture": "https://images.dog.ceo/breeds/bulldog-boston/n02096585_10823.jpg",
-      "nickname": "Lucky ",
-      "age": "4",
-      "bio": "I am a dog",
+      "name": "Darling",
+      "picture": "https://images.dog.ceo/breeds/borzoi/n02090622_7111.jpg",
+      "nickname": "Babe",
+      "age": "28",
+      "bio": "Love that dog",
       "friends": [
-        1,
-        8
+        2,
+        5
       ],
-      "presence": true,
+      "presence": false,
       "id": 3
     },
     {
-      "name": "eeee",
-      "picture": "https://images.dog.ceo/breeds/keeshond/n02112350_6964.jpg",
-      "nickname": "eeee",
-      "age": "32",
-      "bio": "lkmf",
+      "name": "Rex",
+      "nickname": "Rexan",
+      "picture": "https://images.dog.ceo/breeds/poodle-standard/n02113799_2017.jpg",
+      "age": "10",
+      "bio": "Big dog",
       "friends": [
-        8
-      ],
-      "presence": false,
-      "id": 5
-    },
-    {
-      "name": "papps",
-      "nickname": "sfwefafr",
-      "picture": "https://images.dog.ceo/breeds/pug/DSCF7495-2.jpg",
-      "age": "3456",
-      "bio": "argsrths",
-      "friends": [],
-      "presence": false,
-      "id": 7
-    },
-    {
-      "name": "3",
-      "nickname": "4",
-      "picture": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_3153.jpg",
-      "age": "56",
-      "bio": "ujhdfxgd",
-      "friends": [
-        5,
-        3
+        2,
+        1,
+        5
       ],
       "presence": true,
-      "id": 8
+      "id": 4
+    },
+    {
+      "name": "Charlie",
+      "nickname": "",
+      "picture": "https://images.dog.ceo/breeds/terrier-irish/n02093991_4287.jpg",
+      "age": "3",
+      "bio": "Friend whit everyone",
+      "friends": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "presence": true,
+      "id": 5
     }
   ]
 }

@@ -8,7 +8,7 @@ const Navbar = () => {
         <button>Home</button>
       </Link>
       <Link to={"/create"}>
-        <button>Create</button>
+        <button>Create new dog</button>
       </Link>
     </header>
   );

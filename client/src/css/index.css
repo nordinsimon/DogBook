@@ -40,6 +40,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin: 0.3em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -59,6 +60,7 @@ input {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin: 0.3em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -75,4 +77,63 @@ select {
   font-family: inherit;
   background-color: #1a1a1a;
   transition: border-color 0.25s;
+}
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.doglist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 1em;
+}
+
+.dogname_link_true,
+.dogname_link_false {
+  padding: 0.3em;
+  margin: 0;
+  font-size: 20px;
+}
+
+.dogname_link_true {
+  color: green;
+}
+.dogname_link_false {
+  color: red;
+}
+
+.dogname_link_false:hover,
+.dogname_link_true:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.deletebutton {
+  font-size: 18px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  margin-top: 0.3em;
+  margin-left: 1em;
+  background-color: rgb(90, 90, 90);
+  color: white;
+
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.presence_checkbox {
+  scale: 1.5;
+  margin-top: 0.2em;
+}
+
+.doglist_img_homepage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
